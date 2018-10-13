@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="John Doe">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<body ng-app="myApp" ng-controller="formCtrl" ng-cloak>
+
+
+<div >
+
+
+    <div class="col-md-12">
+        <div class="col-md-8">
+
+
+            <form class="form-inline" action="/action_page.php">
+
+                <label for="name">name</label>
+                <input type="text" ng-model="serviceFullObject.name" class="form-control" id="name">
+
+                <label for="t">time</label>
+                <input type="text" ng-model="serviceFullObject.time" class="form-control" id="t">
+
+                <select ng-model="serviceFullObject.selectedStaff">
+                    <option ng-repeat="staff in service" value="{{staff.id}}">
+                        {{staff.name}}
+                    </option>
+                </select>
+
+
+                <div class="col-md-12" ng-repeat="schl in selectedStaffSchl">
+
+                    <input ng-model="schl.price" type="text">
+                    <input ng-model="schl.status" type="checkbox">
+                </div>
+
+                <div class="col-md-12" ng-repeat="schl in selectedStaffDays">
+
+                    <select ng-model="schl.startTime" >
+                        <option value="0">غیرفعال</option>
+                        <option value="1">8:00am</option>
+                        <option value="2">9:00am</option>
+                        <option value="3">10:00am</option>
+                        <option value="4">11:00am</option>
+                    </select>
+                    <select ng-if="schl.startTime!=='0'" ng-model="schl.endTime" >
+                        <option value="1">8:00pm</option>
+                        <option value="2">9:00pm</option>
+                        <option value="3">10:00pm</option>
+                        <option value="4">11:00pm</option>
+                    </select>
+                    </select>
+
+
+                    <input ng-model="schl.status" type="checkbox">
+                </div>
+
+
+                {{selectedStaffDays}}
+            </form>
+            JS
+            HTMLJS
+            <md-content layout-padding layout-margin>
+                <md-datepicker ng-model="ctrl.myDate" ng-change="ctrl.onDateChanged()"
+                               md-placeholder="Enter date"></md-datepicker>
+                Date: {{ctrl.myDate | date:shortDate}}
+            </md-content>
+
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-block" ng-click="newService()">
+                add
+            </button>
+            <input type="text" ng-model="serviceName">
+            <button ng-repeat="serv in service" class="btn btn-block" ng-click="showProfile()">
+                {{serv.name}}
+            </button>
+        </div>
+
+
+    </div>
+    <md-input-container>
+        <label>Vegetables</label>
+        <md-select ng-model="selectedVegetables"
+                   md-on-close="clearSearchTerm()"
+                   data-md-container-class="selectdemoSelectHeader"
+                   multiple>
+            <md-select-header class="demo-select-header">
+                <input ng-model="searchTerm"
+                       type="search"
+                       placeholder="Search for a vegetable.."
+                       class="demo-header-searchbox md-text">
+            </md-select-header>
+            <md-optgroup label="vegetables">
+                <md-option ng-value="vegetable" ng-repeat="vegetable in vegetables |
+              filter:searchTerm">{{vegetable}}</md-option>
+            </md-optgroup>
+        </md-select>
+    </md-input-container>
+
+    {{selectedVegetables}}
+
+    <div >
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="one">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab One</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="two">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Two</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="three">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Three</h1>
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+</div>
+<md-progress-circular md-mode="determinate" value="..."></md-progress-circular>
+
+<md-progress-circular md-mode="determinate" ng-value="..."></md-progress-circular>
+
+<md-progress-circular md-mode="determinate" value="..." md-diameter="100"></md-progress-circular>
+
+<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+<md-switch ng-model="isActive" aria-label="Finished?">
+    Finished ?
+</md-switch>
+
+<md-switch md-no-ink ng-model="hasInk" aria-label="No Ink Effects">
+    No Ink Effects
+</md-switch>
+
+<md-switch ng-disabled="true" ng-model="isDisabled" aria-label="Disabled">
+    Disabled
+</md-switch>
+<script>
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']);
+    app.controller('formCtrl', function ($scope) {
+
+        $scope.service = [{id: 25, name: 'ali'}, {id: 26, name: 'reza'}, {id: 27, name: 'mamad'}, {
+            id: Math.random(),
+            name: 'akkjkli'
+        }];
+        $scope.newService = function () {
+            temp = {id: null, name: $scope.serviceName};
+            $scope.service.push(temp);
+            $scope.serviceName = '';
+        }
+        $scope.selectedStaffSchl = [{id: 1, price: 500, status: true}, {id: 1, price: 900, status: false}, {
+            id: 1,
+            price: 5010,
+            status: true
+        }];
+
+        $scope.vegetables=[1,2,3,4]
+
+        $scope.serviceFullObject = {
+            name: '',
+            time: '',
+
+        }
+        $scope.selectedStaffDays = [
+            {dayIndex: 1, startTime:"1", endTime:"3" , status: true},
+            {dayIndex: 2, startTime:"2", endTime: "4", status: false},
+            {dayIndex: 3, startTime: "3", endTime: "1", status: true},
+            {dayIndex: 1, startTime: "1", endTime: "3", status: false}
+        ]
+
+        $scope.submit = function () {
+
+            $http.post("http://a.ir/api/vreateservice.php", $scope.serviceFullObject)
+                .then(function (response) {
+
+
+                });
+        }
+    });
+</script>
+
+
+</body>
+</html>

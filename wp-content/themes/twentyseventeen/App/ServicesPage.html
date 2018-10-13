@@ -1,0 +1,498 @@
+<?php /* Template Name: manage2 */ ?>
+
+
+<!DOCTYPE html>
+<html>
+<!--
+<meta charset="UTF-8">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="John Doe">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+<link rel="stylesheet" href="\webOne\wp-content\themes\twentyseventeen\md-time-picker.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="\webOne\wp-content\themes\twentyseventeen\md-time-picker.js"></script>
+<script src="\webOne\node_modules\angular-iran-national-id\dist\angular-iran-national-id.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+-->
+
+
+<meta charset="UTF-8">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="Khashmort">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+<script src="node_modules/angular-material/angular-material.min.js"></script>
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="node_modules/angular-material-time-picker/dist/md-time-picker.css">
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/popper.js/dist/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular-material-time-picker/dist/md-time-picker.js"></script>
+<script src="node_modules/angular-iran-national-id/dist/angular-iran-national-id.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body {
+        background-color: ghostwhite;
+        font-family: IRAN;
+        direction: rtl;
+
+    }
+
+    @font-face {
+        font-family: IRAN;
+        src: url('IRAN.woff2');
+    }
+
+    .row {
+        margin-right: 7px;
+    }
+
+    .md-raised {
+        margin-right: 0px;
+    }
+
+    md-input-container.md-default-theme.md-input-invalid .md-input, md-input-container.md-input-invalid .md-input {
+        border-color: rgb(253, 82, 82);
+    }
+
+
+    md-icon {
+        color: #FF5252;
+    }
+
+    .col8 {
+
+        min-height: 500px;
+
+    }
+    .pt-50 {
+        padding-top: 55px;
+    }
+
+    md-radio-button {
+        text-align: right;
+    }
+
+    md-input-container:not(.md-input-has-value) input:not(:focus), md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field {
+        color: black;
+    }
+
+    .demo-header-searchbox {
+        width: 312px;
+    }
+
+    .md-button {
+        border-radius: 20px;
+        min-height: 55px;!important;
+    }
+
+    md-card {
+        border-radius: 35px;
+    }
+
+
+
+    md-list-item .md-no-style.md-button {
+        min-height: 64px;
+    }
+</style>
+
+<body ng-app="myApp" ng-controller="formCtrl" ng-cloak dir="rtl" lang="fa">
+
+
+<div>
+    <div class="container">
+        <div class="row pt-50">
+            <div class="col-md-4 rightCol">
+                <md-card>
+                    <md-card-content>
+                        <md-list-item ng-repeat="cat in catFullDetail" ng-click="selectCat($index)" class="noright">
+                            <img class="ml-3" width="20px" height="20px"
+                                 src="data:image/png;base64,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">
+                            <p>{{ cat.name }}</p>
+                            <md-icon class="material-icons" ng-click="doSecondaryAction($event)"
+                                     class="md-secondary md-hue-3">delete
+                            </md-icon>
+                        </md-list-item>
+                    </md-card-content>
+                </md-card>
+
+                <div class="col-md-11" style="padding-right: 30px;">
+                    <md-button class="md-raised md-primary" ng-click="addCat()" ng-if="IsCatVisible!=true"
+                               style="width: 100%">افزودن گروه
+                    </md-button>
+                    <div ng-show="IsCatVisible">
+                        <md-input-container>
+                            <label>نام گروه</label>
+                            <input type="text" name="name" ng-model="catname" required style="width: 260px">
+                        </md-input-container>
+                        <md-button class="md-raised md-primary" ng-click="newCat()" style="width: 100%">ذخیره
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <md-card class="col8">
+                        <md-card-content>
+                            <div>
+                                <md-button class="md-raised md-primary"  ng-click="showAdvanced($event)"
+                                           style="width: 100%">افزودن سرویس
+                                </md-button>
+                                <div ng-show="IsServVisible">
+                                    <md-input-container>
+                                        <label>نام سرویس</label>
+                                        <input type="text" name="name" ng-model="name2" required style="width: 260px">
+                                    </md-input-container>
+                                    <md-button class="md-raised md-primary" ng-click="newServ()" style="width: 100%">
+                                        ذخیره
+                                    </md-button>
+                                </div>
+                            </div>
+
+
+                            <md-list>
+                                <md-list-item ng-repeat="serv in currentCat.service"
+                                              ng-click="selectService($index, $event)" class="noright">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANgSURBVGhD7ZdNTBNBGIbr0bPxZoyeNdGTejIEWryo8WirJGh7NPEnHkw0JooHE60tSEATo4WCiNCSGiBGJILBi4oaFRHkp6KYaoTSP/q33XG+7nQ72xaty3a6QJ/kTZudmff73uzObKspsVaoa3Zttdod9ywtjimr3TlpsTvuWNq6tpDhlYG12bEdNz9nbXEiifC1G/c7tpFp6sfa4nhOmn9Va3dWWlo79+Hvw3AN35kBMk3d1La3byQhUK3dsYlc1libHm4mQfibTc4N5DJ7tEdMe7R6422d3tiXUtXp88OX6u/O0brcYFsQGnbyZrN5PVmuge9wDcZgTuY68KK9oRbUJMuVQac3ndEZTDwWolV99qJ0D2SoptH2klhoahqbXueakxJ4Zfpj8TjMKWKxPLDZTjCkzEX9KwjIbOvgrts6uVxjtJYIgvCdSVQePbaDtCMffDeupUyrTp5Dj/qeoZ7+waQedD/J2ZQcgVfKF2pArXQg41XSjnxwkNaUYWtXN6IZ//o9Z1NyBF40UEsMgnsg7ciHDtLm6iVlBELhCLrV0Z2zsf8ReCxGIsRVAGoxCwL4gyE0/GkcDb35KEuw1h9aJG5pmAcpFKUgS7HmgvALXhQfeCqKGxogI1J8eE95/YEsRWNxMkOgaEG4D+9QsGKXqNDBcjIiZWTSjd5+nsjSvC9AZgioPoj7hwdNzMxmKZBxcjENwvt9KDE2mlSs1yUNsr9MHAOhRIKsyg+mQeL9jyXN/018UHh0wpFo8kWaKY6TBlV9EFXuETlBRqdn0PsvU1mCk4uGbZDBfhQ6VJFU8ECZtHntbnEMxIeCZFV+MA1Ck++plS+qD7Jq3iOqD4LPT/xe8acV8JMBKRx+n8BRmyme58kMgeIFURimQeAH4Jj7myICLxqmQeC5zvW8y1FR90gsziX/pioh8KJhGqSQMA0SXAyj6VmPIgIvGqZBVs0eiURj6LfXp4jAi4ZpkELCNEg4GkU/57yKCLxomAZZNXsE/qLOeH4pIvCiYRqkkJSCLEUpyDJpc/UoHMRgupkyPHHhChoZm0DjU+6CCmpALTGIwVhH2pGP7rCpPG1YLB3fS9pZHtisIducjbR6Yz1pQxHWYdNqrcH4An96sPl8ISXUMA1BTVK/xApDo/kDCFrVrTzIPNIAAAAASUVORK5CYII=">
+                                    <p>{{ serv.name}}</p>
+                                    <md-checkbox class="md-secondary" ng-model="serv.status"></md-checkbox>
+                                    <md-icon class="md-icon-button" ng-click="doSecondaryAction($event)"
+                                             id="myInput" aria-label="Chat"
+                                             style="z-index: 11;padding-left: 7px">delete
+                                    </md-icon>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'md.time.picker']);
+    app.controller('formCtrl', function ($scope, $mdDialog) {
+        $scope.selectedDoctors = [];
+        $scope.doctor = [{id: 25, name: 'ali'},
+            {id: 26, name: 'reza'},
+            {id: 27, name: 'mamad'},
+            {id: 29, name: 'naghi'}];
+        $scope.time = [];
+        $scope.message = {
+            hour: 'Hour is required',
+            minute: 'Minute is required',
+            meridiem: 'Meridiem is required',
+        };
+        $scope.readonly = false;
+        $scope.required = true;
+        $scope.currentService = null;
+
+        $scope.catFullDetail = [
+            {
+                id: 1, name: "رادیولوژی",
+                service: [
+                    {
+                        id: '3', status: true, name: 'جمجمه نیم رخ', price: 5550, duration: 900,
+                        doctors: [
+                            {id: 2, name: "دکتر توسلی", status: true},
+                            {id: 3, name: "دکتر مرتضوی", status: false},
+                            {id: 4, name: "دکتر اسکندری", status: true}]
+                    },
+                    {
+                        id: '3', status: true, name: 'فک و دندان', price: 5550, duration: 900,
+                        doctors: [
+                            {id: 2, name: "دکتر توسلی", status: true},
+                            {id: 3, name: "دکتر مرتضوی", status: false},
+                            {id: 4, name: "دکتر اسکندری", status: true}
+                        ]
+                    },
+                    {
+                        id: '3', status: true, name: 'لگن شکسته', price: 5550, duration: 900,
+                        doctors: [
+                            {id: 2, name: "دکتر توسلی", status: true},
+                            {id: 3, name: "دکتر مرتضوی", status: false},
+                            {id: 4, name: "دکتر اسکندری", status: true}]
+                    },]
+            },
+            {
+                id: 2, name: "سونوگرافی",
+                service: [
+                    {
+                        id: '6', status: true, name: 'مثانه خالی', price: 5550, duration: 900,
+                        doctors: [
+                            {id: 5, name: "دکتر اسکندری", status: true}]
+                    },
+                    {
+                        id: '7', status: true, name: 'مثانه پر', price: 9990, duration: 1800,
+                        doctors: [
+                            {id: 3, name: "دکتر مرتضوی", status: false},
+                            {id: 4, name: "دکتر اسکندری", status: true}
+                        ]
+                    },
+                    {
+                        id: '8', status: true, name: 'شکم', price: 12000, duration: 2700,
+                        doctors: [
+                            {id: 9, name: "دکتر توسلی", status: true}]
+                    },]
+            },
+            {
+                id: 3, name: "دندان پزشکی",
+                service: [
+                    {
+                        id: '11', status: true, name: 'فک شکسته', price: 99900, duration: 2700,
+                        doctors: [
+                            {id: 3, name: "دکتر مرتضوی", status: true},
+                            {id: 12, name: "دکتر اسکندری", status: true}]
+                    },
+                    {
+                        id: '17', status: true, name: 'او تی جی', price: 9990, duration: 1800,
+                        doctors: [
+                            {id: 3, name: "دکتر مرتضوی", status: false},
+                            {id: 4, name: "دکتر اسکندری", status: true}
+                        ]
+                    },
+                    {
+                        id: '18', status: true, name: 'دندان پوسیده', price: 12000, duration: 2700,
+                        doctors: [
+                            {id: 9, name: "دکتر توسلی", status: true}]
+                    },]
+            },
+
+
+        ];
+
+        //  $scope.currentCat = $scope.catFullDetail[0]
+        /*for (var i = 0; i < $scope.currentCat.doctors.length; i++) {
+         if ($scope.currentCat.doctors[i].status === true) {
+         $scope.selectedDoctors.push($scope.currentCat.doctors[i].id)
+         }
+         }*/
+        $scope.IsCatVisible = false;
+        $scope.addCat = function () {
+            $scope.IsCatVisible = !$scope.IsCatVisible;
+
+        };
+        $scope.IsServVisible = false;
+        $scope.addServ = function () {
+            $scope.IsServVisible = !$scope.IsVisible;
+
+        };
+        $scope.newCat = function () {
+            tmp = {
+                id: '1',
+                status: true,
+                name: $scope.catname,
+                price: 5550,
+                duration: 900,
+                doctors: [
+
+                    {id: 2, name: "دکتر توسلی", status: true},
+                    {id: 3, name: "دکتر مرتضوی", status: false},
+                    {id: 4, name: "دکتر اسکندری", status: true},
+
+                ]
+            };
+
+
+            $scope.catFullDetail.push(tmp);
+            $scope.IsCatVisible = false;
+        };
+
+        $scope.newServ = function () {
+            tmp2 = {
+                id: '1000000',
+                status: true,
+                name: "test",
+                price: 5550,
+                duration: 900,
+                doctors: [
+
+                    {id: 2, name: "دکتر توسلی", status: true},
+                    {id: 3, name: "دکتر مرتضوی", status: false},
+                    {id: 4, name: "دکتر اسکندری", status: true},
+
+                ]
+            };
+
+
+            $scope.catFullDetail.push(tmp2);
+            $scope.IsServVisible = false;
+        };
+        $scope.selectCat = function (a) {
+            $scope.selectedDoctors = [];
+            a = parseInt(a);
+            $scope.currentCat = $scope.catFullDetail[a];
+            for (let i = 0; i < $scope.currentCat.doctors.length; i++) {
+                if ($scope.currentCat.doctors[i].status === true) {
+                    $scope.selectedDoctors.push($scope.currentCat.doctors[i].id)
+                }
+            }
+
+        };
+
+        $scope.name2 = '';
+        $scope.status = '';
+        $scope.customFullscreen = true;
+
+        $scope.selectService = function (i, ev) {
+            $scope.currentService = $scope.currentCat.service[i];
+            servScope = $scope.currentService;
+
+            $scope.Doctors = $scope.currentCat.service[i].doctors;
+            docScope = $scope.Doctors;
+
+
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: './ServicesModal.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+
+
+        $scope.createService = function (ev) {
+            $scope.currentService = $scope.currentCat.service[i];
+            servScope = $scope.currentService;
+        $mdDialog.show({
+                controller: DialogController,
+                templateUrl: './ServicesModal.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+        $scope.showAdvanced = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: './ServicesModal.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function(answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+        /*  $scope.selectService = function (i) {
+         $scope.currentService = $scope.currentCat.service[i]
+         }*/
+
+        $scope.insertRequset = function () {
+
+            $.ajax({
+                type: 'POST',
+                url: "../Api/serviceInsert.php",
+                data: {
+                    category_id: 1,
+                    title: $scope.currentService.name,
+                    price: $scope.currentService.price,
+                    duration: $scope.currentService.duration,
+
+                },
+                success: function (data) {
+                    alert(1)
+                },
+                error: function (xhr, desc, err) {
+                    alert("err SUBMIT...");
+                }
+            });
+        };
+        $scope.removeRequset = function () {
+
+            $.ajax({
+                type: 'POST',
+                url: "../Api/serviceInsert.php",
+                data: {
+                    category_id: 1,
+                    title: $scope.currentService.name,
+                    price: $scope.currentService.price,
+                    duration: $scope.currentService.duration,
+
+                },
+                success: function (data) {
+                    alert(2)
+                },
+                error: function (xhr, desc, err) {
+                    alert("err SUBMIT...");
+                }
+            });
+        };
+        insertreq = $scope.insertRequset;
+        removereq = $scope.removeRequset;
+
+        function DialogController($scope, $mdDialog) {
+            $scope.ServName = servScope.name;
+            $scope.ServPrice = servScope.price;
+            $scope.ServDuration = servScope.duration;
+            $scope.DocScope = docScope;
+
+            $scope.hide = function () {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+
+            $scope.answer = function (answer) {
+                $mdDialog.hide(answer);
+            };
+            $scope.insertReq = insertreq;
+
+            $scope.removeReq = removereq;
+
+
+        }
+
+
+    });
+    app.config(function ($mdThemingProvider) {
+        $mdThemingProvider
+            .theme('default')
+            .primaryPalette('blue-grey')
+            .accentPalette('red')
+            .warnPalette('red')
+            .backgroundPalette('grey');
+    });
+</script>
+</body>
+</html>

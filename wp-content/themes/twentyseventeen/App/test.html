@@ -1,0 +1,376 @@
+<?php /* Template Name: manage2 */ ?>
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="Khashmort">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+<script src="node_modules/angular-material/angular-material.min.js"></script>
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="node_modules/angular-material-time-picker/dist/md-time-picker.css">
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/popper.js/dist/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular-material-time-picker/dist/md-time-picker.js"></script>
+<script src="node_modules/angular-iran-national-id/dist/angular-iran-national-id.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body {
+        background-color: ghostwhite;
+        font-family: IRAN;
+        direction: rtl;
+    }
+
+    @font-face {
+        font-family: IRAN;
+        src: url('IRAN.woff2');
+    }
+
+    md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+        color: rgb(103, 190, 199);
+        background: rgb(75, 125, 123) !important;
+    }
+
+    .rightCol {
+        padding-top: 131px;
+    }
+
+    .pt-50 {
+        padding-top: 55px;
+    }
+
+    md-radio-button {
+        text-align: right;
+    }
+
+    .md-display-2 {
+        text-align: right;
+    }
+
+    md-input-container:not(.md-input-has-value) input:not(:focus), md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field {
+        color: black;
+    }
+
+    .demo-header-searchbox {
+        width: 312px;
+    }
+</style>
+<body ng-app="myApp" ng-controller="formCtrl" ng-cloak dir="rtl" lang="fa">
+
+
+<div>
+    <div class="container">
+        <div class="row pt-50">
+            <!--<md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                Custom Dialog
+            </md-button>-->
+            <div class="col-md-4 rightCol">
+                <md-list-item ng-repeat="cat in catFullDetail" ng-click="selectCat($index)" class="noright">
+                    <img class="ml-3" width="20px" height="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6Q
+                    AAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPQSURBVGhDzdlbqBVlGIfxbVYeCkswksRCLQrBEIy
+                    IzDINJEmDDhKCpYKh4oV1EUUZBmmQmAhaeRFUhEghGhZFBRGEgmZEGAodtAtRMBMVs6jM58E1MM1+13bNYc+sP/xwO4e132+vmW99866einIJpuIlfIjv8RtO4j/8jd9xGF/jb
+                    SzF9eiazMYvsOC8/sVWjESjuRfnEBWZxz5cjsayAVFhRdyKxuL9EBWV8F4xdyHan/YAGsteREUl8gxkMRrLMWQL+gfOUHKGMncg2XYK2XO0Co1kMKKCknehXdq9O++ikdyEqKAfMLxlGMyl
+                    SLbdj+i8L9FIpiMqKC3PPfITGskTiApKyzOQPzEAtecFRAWlJZdZu8sp61rUnk3Yj4/wPj7A5y278A28XH5ucVBu+woe8zE8T247jttQe65s/VtVBuKKCz/WnzHwsnkUc/AI7sPdmITxGNsysb
+                    XN/ZoFz5P30FA0khWoYsGYOIJbUGucXf5AVFAZ61FrrkFUSFnbUGsGISqkLJ8ca4+PslExZaxG7dmOqJgyZqL2LEBUTFGn4SVbe5z37YpERRXxChpLVe/KUVyFRvMeouI69RfsxjQenxRdAEZF
+                    XoyDeBxdExd8XuN2FKOCI79iMroyLhK34Cyi4uUAnsUQdH1cjj+Ip7AW9oRt97j6beQpMG8uw43w5nV57vX/ZIvLfJfutoZGoKsyARZuXkaee+QE7oRxcLU3sv2lG3EIFmQ33fjglC22L94r
+                    ThLeKzb67MzvxvO4Dv0SO+VLYFckW5DvwiiYncjub+c5mKgbY7fStdwUVBK/wPH69q+X/WVpK2HmIdqfZesnuU98F6JjEp/BSaJw7CTau41ePMs1l91EPxyjfnDWOzC3I9qf5bvu51T
+                    uReVDOIPoRdt5GOZVRPvTvM+MA4r2t2P3v+NJYRm8RqMX6ssXMOPgjRsdoz0wXlpFnvsPwt/RZ2ztFBmE7KjcDPMJomM0H+YZRPs74Vd1bftqV8O5PTqxU+tg/II02u/943TrJOJfN
+                    jqmU28izIuITsjDL3Is1M+HaKZbA9NuoHm4ch6NXvkO0Ql5+bBl/GBLb/e+sTNpPkV6X1F+tvVKVQ03PxeMs4t/tWT7DhiXNFV1KJNL+X+JDiwq6aq7pE+2zXADeQ3pY8t4Hb0SHVjU
+                    WzD3wP//CG9wGxZlJ5S0fh+Il6mzoHGqfPrCjz2LEB1fVL8PRMthFiIZ1LeIji2qloEcQPpp0GeP6LgyahmIpiHJZkTHlFHbQPxe0WSn4qqEA/HLzaq9gRvwWGpbleaC9PScB98Uh3IEE
+                    Y4UAAAAAElFTkSuQmCC">
+                    <p>{{ cat.name }}</p>
+                </md-list-item>
+                <md-button class="md-raised md-primary" ng-click="addCat()" ng-if="IsVisible!=true"
+                           style="width: 100%">افزودن پزشک
+                </md-button>
+                <div ng-show="IsVisible">
+                    <md-input-container>
+                        <label>نام پزشک</label>
+                        <input type="text" name="name" ng-model="name" required style="width: 260px">
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-click="newCat()" style="width: 100%">ذخیره</md-button>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <md-list>
+
+                            <md-list-item ng-repeat="serv in currentCat.service"
+                                          ng-click="selectService($index, $event)" class="noright">
+                                <img alt="{{ serv.name }}" ng-src="{{ person.img }}" class="md-avatar"/>
+                                <p>{{ serv.name }}</p>
+                                <md-checkbox class="md-secondary" ng-model="serv.status"></md-checkbox>
+                                <md-icon md-svg-icon="communication:email" ng-click="doSecondaryAction($event)"
+                                         aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
+                                <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat"
+                                         md-svg-icon="communication:message"></md-icon>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="myDialog">
+        <md-dialog layout-padding>
+            <h2>{{currentService.name}}</h2>
+
+        </md-dialog>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'md.time.picker', 'angular-iran-national-id']);
+    app.controller('formCtrl', function ($scope, $mdDialog) {
+
+        $scope.selectedDoctors = []
+        $scope.doctor = [{id: 25, name: 'ali'},
+            {id: 26, name: 'reza'},
+            {id: 27, name: 'mamad'},
+            {id: 29, name: 'naghi'}];
+        $scope.time = [];
+        $scope.message = {
+            hour: 'Hour is required',
+            minute: 'Minute is required',
+            meridiem: 'Meridiem is required'
+        }
+        $scope.readonly = false;
+        $scope.required = true;
+        $scope.currentService = null;
+
+        $scope.catFullDetail = [
+            {
+                id: 1,
+                name: "brain1",
+                service: [{
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی2',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی1',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی3',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }]
+            },
+            {
+                id: 1,
+                name: "brain",
+                service: [{
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }]
+            },
+            {
+                id: 1,
+                name: "brain",
+                service: [{
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }, {
+                    id: '3',
+                    status: true,
+                    name: ' رادیولوژی',
+                    price: 5550,
+                    duration: 900,
+                    doctors: [
+                        {id: 1, name: "ali", status: true},
+                        {id: 3, name: "khashi", status: true},
+                        {id: 4, name: "hadi", status: true}
+
+                    ]
+                }]
+            }
+
+
+        ];
+
+        //  $scope.currentCat = $scope.catFullDetail[0]
+        /*for (var i = 0; i < $scope.currentCat.doctors.length; i++) {
+         if ($scope.currentCat.doctors[i].status === true) {
+         $scope.selectedDoctors.push($scope.currentCat.doctors[i].id)
+         }
+         }*/
+        $scope.IsVisible = false;
+        $scope.addCat = function () {
+            $scope.IsVisible = $scope.IsVisible ? false : true;
+
+        }
+        $scope.newCat = function () {
+            tmp = {
+                id: '1',
+                status: true,
+                name: $scope.name,
+                price: 5550,
+                duration: 900,
+                doctors: [
+
+                    {id: 2, name: "reza", status: true},
+                    {id: 3, name: "khashi", status: true},
+                    {id: 4, name: "hadi", status: true},
+
+                ]
+
+            }
+            $scope.catFullDetail.push(tmp);
+            $scope.IsVisible = false;
+        }
+        $scope.selectCat = function (a) {
+            $scope.selectedDoctors = []
+            a = parseInt(a);
+            $scope.currentCat = $scope.catFullDetail[a];
+            for (var i = 0; i < $scope.currentCat.doctors.length; i++) {
+                if ($scope.currentCat.doctors[i].status === true) {
+                    $scope.selectedDoctors.push($scope.currentCat.doctors[i].id)
+                }
+            }
+        }
+
+
+        $scope.status = '  ';
+        $scope.customFullscreen = true;
+        $scope.selectService = function (i,ev) {
+            $scope.currentService = $scope.currentCat.service[i];
+            servScope=$scope.currentService;
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: '/webOne/wp-content/themes/twentyseventeen/dialog.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+        /*  $scope.selectService = function (i) {
+              $scope.currentService = $scope.currentCat.service[i]
+          }*/
+
+        function DialogController($scope, $mdDialog) {
+            $scope.name=servScope.name;
+
+            $scope.hide = function () {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+
+            $scope.answer = function (answer) {
+                $mdDialog.hide(answer);
+            };
+        }
+
+
+    });
+    app.config(function ($mdThemingProvider) {
+        $mdThemingProvider
+            .theme('default')
+            .primaryPalette('blue')
+            .accentPalette('teal')
+            .warnPalette('red')
+            .backgroundPalette('grey');
+    });
+</script>
+</body>
+</html>

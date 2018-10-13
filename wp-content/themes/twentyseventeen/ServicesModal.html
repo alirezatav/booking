@@ -1,0 +1,159 @@
+<style>
+    body {
+        background-color: ghostwhite;
+        font-family: IRAN;
+        direction: rtl;
+
+    }
+
+    @font-face {
+        font-family: IRAN;
+        src: url('IRAN.woff2');
+    }
+
+    .row {
+        margin-right: 7px;
+    }
+
+    md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+        color: rgb(103, 190, 199);
+        /*
+                background: rgb(75, 125, 123) !important;
+        */
+    }
+
+    .containerCard8 {
+
+        width: 701px;
+
+    }
+    md-input-container.md-default-theme.md-input-invalid .md-input, md-input-container.md-input-invalid .md-input {
+        border-color: rgb(253, 82, 82);
+    }
+
+    .rightCol {
+        padding-top: 112px;
+    }
+
+    md-icon {
+        color: #FF5252;
+    }
+
+    .selectInput {
+
+        margin-right: 15% ;
+
+    }
+    .pt-50 {
+        padding-top: 55px;
+    }
+
+    md-radio-button {
+        text-align: right;
+    }
+    .col-md-5 {
+        padding-right: 8px;
+
+    }
+
+    md-input-container:not(.md-input-has-value) input:not(:focus), md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field {
+        color: black;
+    }
+
+    .demo-header-searchbox {
+        width: 312px;
+    }
+
+    .md-button {
+        border-radius: 20px;
+        min-height: 55px;
+    !important;
+    }
+
+    md-card {
+        border-radius: 35px;
+    }
+
+    .md-list-item {
+        min-height: 150px;
+    }
+
+    md-list-item .md-no-style.md-button {
+        min-height: 64px;
+    }
+
+    .md-display-2 {
+        font-weight: 600;
+        text-align: right;
+        color: rgb(119, 118, 118);
+    }
+
+    md-content {
+
+        background-color: ghostwhite;
+    }
+</style>
+<md-dialog>
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{ServName}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <form style="direction: rtl">
+                    <div class="container" >
+                        <div class="row">
+                            <md-input-container class="col-md-6">
+                                <label>نام کامل سرویس</label>
+                                <input type="text"
+                                       ng-model="ServName"
+                                       required>
+                            </md-input-container>
+                            <md-input-container class="col-md-6">
+                                <label>قیمت</label>
+                                <input type="number" name="name"
+                                       ng-model="ServPrice"
+                                       required>
+                            </md-input-container>
+                        </div>
+                        <div class="row">
+                            <md-input-container class="col-md-6">
+                                <label>مدت زمان سرویس</label>
+                                <input type="number" name="name"
+                                       ng-model="ServDuration"
+                                       required>
+                            </md-input-container>
+                            <md-input-container class="col-md-6">
+                                <label>پزشک مربوطه</label>
+                                <md-select ng-model="DocScope" multiple>
+                                    <md-option ng-repeat="doc in DocScope">{{doc.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised">
+                بازنشانی
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="removeReq()" class="md-raised md-warn md-button md-ink-ripple">
+                حذف
+            </md-button>
+            <md-button ng-click="insertReq()" md-autofocus
+                       class="md-raised md-primary md-button ng-scope md-ink-ripple">
+                ذخیره
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

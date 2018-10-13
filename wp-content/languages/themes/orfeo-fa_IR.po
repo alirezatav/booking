@@ -1,0 +1,63 @@
+# Translation of Themes - Orfeo in Persian
+# This file is distributed under the same license as the Themes - Orfeo package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-01-29 16:46:15+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: fa\n"
+"Project-Id-Version: Themes - Orfeo\n"
+
+#. Theme Name of the plugin/theme
+msgid "Orfeo"
+msgstr "اورفئو"
+
+#. #-#-#-#-#  orfeo.pot (Orfeo 1.0.6)  #-#-#-#-#
+#. Description of the plugin/theme
+#: functions.php:388
+msgid "Orfeo is a responsive WordPress theme with multipurpose design. It is a good fit for both small businesses and corporate businesses, as it is highly customizable via the Live Customizer. You can use Orfeo for restaurants, startups, freelancer resume, creative agencies, portfolios, WooCommerce, or niches like sports, medical, blogging, fashion, lawyer sites etc. It has a one-page design, Sendinblue newsletter integration, widgetized footer, and a clean appearance. The theme is compatible with Elementor Page Builder, Photo Gallery, Flat Parallax Slider, and Travel Map; it is mobile friendly and optimized for SEO."
+msgstr "اورفئو یک پوسته واکنشگرای وردپرس با طراحی چند منظوره است. آن مناسب برای هر دو کسب و کار کوچک و تجاری می‌باشد، زیرا آن از طریق سفارشی ساز زنده، بسیار قابل سفارشی سازی است. شما می‌توانید از اورفئو برای رستوران‌ها، استارت‌آپ ها، رزومه کاری، آژانس‌های خلاق، نمونه‌کارها، ووکامرس، یا سایت‌هایی مانند ورزشی، پزشکی، بلاگ، سبک و روش، وکیل‌ها و غیره استفاده کنید. آن طراحی تک صفحه‌ای، تطبیق با خبرنامه Sendinblue، زیرصفحه‌های ابزارکی، و یک ظاهر تمیز دارد. پوسته با صفحه ساز Elementor، گالری تصاویر، اسلایدر Flat Parallax، و نقشه سفر سازگار است؛ سازگار با موبایل و بهینه‌شده برای سئو می‌باشد."
+
+#. translators: s - theme name
+#: functions.php:384
+msgid "Welcome to %s! - Version "
+msgstr "به نگارش %s خوش آمدید!"
+
+#: functions.php:375 functions.php:379
+msgid "About Orfeo"
+msgstr "درباره اورفئو"
+
+#: functions.php:298
+msgid "Read more"
+msgstr "مرور بیشتر"
+
+#: functions.php:142
+msgid "First button text"
+msgstr "متن دکمه اول"
+
+#: functions.php:124 functions.php:144
+msgid "Second button text"
+msgstr "متن دکمه دوم"
+
+#: functions.php:98
+msgid "Second Button URL"
+msgstr "آدرس URL دکمه دوم"
+
+#: functions.php:73 functions.php:80
+msgid "Second Button text"
+msgstr "متن دکمه دوم"
+
+#. Author URI of the plugin/theme
+msgid "https://themeisle.com"
+msgstr "https://themeisle.com"
+
+#. Author of the plugin/theme
+msgid "ThemeIsle"
+msgstr "ThemeIsle"
+
+#. Theme URI of the plugin/theme
+msgid "https://themeisle.com/themes/orfeo/"
+msgstr "https://themeisle.com/themes/orfeo/"
