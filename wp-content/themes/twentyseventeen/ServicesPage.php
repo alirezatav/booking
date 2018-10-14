@@ -202,7 +202,7 @@
             </div>
         </div>
 
-
+{{catList}}
     </div>
 </div>
 
@@ -217,8 +217,8 @@
             type: 'get',
             url: "http://localhost/Api/getCats.php",
             success: function (data) {
-                $scope.catList=data;
-                console.log(data);
+                $scope.catList=JSON.parse(data);
+                console.log($scope.catList);
 
 
 
