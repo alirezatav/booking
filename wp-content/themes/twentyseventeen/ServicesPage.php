@@ -14,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+<!--
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -29,6 +30,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="http://localhost/wp-content/themes/twentyseventeen/md-time-picker.js"></script>
 <link rel="stylesheet" href="http://localhost/wp-content/themes/twentyseventeen/md-time-picker.css">
+-->
 
 
 
@@ -69,7 +71,7 @@
 
     @font-face {
         font-family: IRAN;
-        src: url('htdocs/wp-content/themes/twentyseventeen/IRAN.woff2');
+        src: url('http://localhost/wp-content/themes/twentyseventeen/IRAN.woff2');
     }
 
     .row {
@@ -369,8 +371,8 @@
         $scope.selectCat = function (a) {
             $scope.selectedDoctors = [];
             a = parseInt(a);
-            $scope.currentCat = $scope.catFullDetail[a];
-            for (let i = 0; i < $scope.currentCat.doctors.length; i++) {
+            $scope.currentCat = $scope.catList[a];
+            for (let i = 0; i < $scope.catList.length; i++) {
                 if ($scope.currentCat.doctors[i].status === true) {
                     $scope.selectedDoctors.push($scope.currentCat.doctors[i].id)
                 }
